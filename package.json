@@ -1,0 +1,11 @@
+{
+  "name": "web-novel-reader",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "validate": "node tools/build-index.mjs --check",
+    "build:index": "node tools/build-index.mjs",
+    "start": "node tools/start.mjs",
+    "test": "node tools/build-index.mjs --check"
+  }
+}

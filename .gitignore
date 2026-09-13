@@ -1,0 +1,8 @@
+# Keep personal novels and their generated metadata local.
+/web/novel/*
+!/web/novel/.gitkeep
+/web/novel-index.json
+/web/novel-index.json.tmp
+
+node_modules/
+*.log
