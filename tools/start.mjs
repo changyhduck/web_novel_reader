@@ -28,4 +28,9 @@ server.listen(port, host, () => {
   const url = `http://${host}:${port}/`; console.log(`小說閱讀器已啟動：${url}`); console.log('按 Ctrl+C 停止服務。');
   if (process.env.NO_OPEN !== '1') openEdge(url);
 });
-server.on('error', (error) => { console.error(`無法啟動：${error.message}`); process.exitCode = 1; });
+server.on('error', (error) => {
+  if (error.code === 'EADDRINUSE') {
+    console.error(`連接埠 ${port} 已被使用。若閱讀器已啟動，請使用原視窗；否則請停止占用此連接埠的服務後重試。`);
+  } else console.error(`無法啟動：${error.message}`);
+  process.exitCode = 1;
+});

@@ -5,8 +5,8 @@ set "PROJECT_DIR=%~dp0"
 set "START_SCRIPT=%PROJECT_DIR%start.ps1"
 
 if not exist "%START_SCRIPT%" (
-  echo [錯誤] 找不到 start.ps1：%START_SCRIPT%
-  echo 請將 start.bat 與 start.ps1 放在同一個專案資料夾。
+  echo [ERROR] start.ps1 was not found: %START_SCRIPT%
+  echo Keep start.bat and start.ps1 in the same project folder.
   pause
   exit /b 1
 )
@@ -16,7 +16,7 @@ set "EXIT_CODE=%ERRORLEVEL%"
 
 if not "%EXIT_CODE%"=="0" (
   echo.
-  echo [錯誤] 小說閱讀器未能正常啟動。結束代碼：%EXIT_CODE%
+  echo [ERROR] Novel Reader stopped with exit code %EXIT_CODE%.
   pause
 )
 
